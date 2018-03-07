@@ -39,20 +39,19 @@ app.get('/get/persona/:id', function(req, res) {
 app.listen(3000, function(req,res){
     console.log('Escuchando en el puerto 3000');
 });
-var identificacion = 0;
 var persona = {
-      id : identificacion,
+      id : 0,
       nombre : null,
       apellido:'Perez',
       edad:28,
   }
-  identificacion++;
   var cualquiera = persona;
   cualquiera.nombre = 'Martin';
   var profesor = persona;
   profesor.nombre = 'Andres';
   profesor.universidad = 'udea';
-  identificacion++;
+  profesor.id=1;
   var estudiante = persona;
   estudiante.nombre = 'Santiago';
   estudiante.carrera = 'derecho';
+  estudiante.id=2;
