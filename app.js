@@ -1,14 +1,35 @@
 const express = require('express');
 const app = express();
 
-app.get('/persona/:id', function(req, res) {
+// GET
+app.get('/get/persona/:id', function(req, res) {
     var user_id = req.param('id');
     switch(user_id){
-        case 0:
-        res.send(cualquiera.nombre)
+        case '0':
+        res.send(cualquiera)
         break;
-        case 1:
-        res.send(cualquiera.nombre)
+        case '1':
+        res.send(profesor)
+        break;
+        case '2':
+        res.send(estudiante)
+        break;
+        default:
+        res.send('Este usuario no existe');
+    }
+  });
+// POST
+  app.post('/post/persona/:id', function(req, res) {
+    var user_id = req.param('id');
+    switch(user_id){
+        case '0':
+        res.send(cualquiera)
+        break;
+        case '1':
+        res.send(profesor)
+        break;
+        case '2':
+        res.send(estudiante)
         break;
         default:
         res.send('Este usuario no existe');
@@ -33,6 +54,5 @@ var persona = {
   profesor.universidad = 'udea';
   identificacion++;
   var estudiante = persona;
-  estudiante.nombre
+  estudiante.nombre = 'Santiago';
   estudiante.carrera = 'derecho';
-  identificacion++;
