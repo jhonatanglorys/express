@@ -19,22 +19,57 @@ app.get('/get/persona/:id', function(req, res) {
     }
   });
 // POST
-  app.post('/post/persona/:id', function(req, res) {
-    var user_id = req.param('id');
-    switch(user_id){
+  app.post('/post/persona', function(req, res) {
+    res.send(cualquiera);
+  });
+
+  app.post('/post/estudiante', function(req, res) {
+    res.send(estudiante);
+  });
+
+  app.post('/post/profesor', function(req, res) {
+    res.send(profesor);
+  });
+
+  app.put('/put/:id', function(req, res) {
+      var user_id = req.param('id');
+      switch(user_id){
         case '0':
+        cualquiera.nombre= null;
         res.send(cualquiera)
         break;
         case '1':
+        profesor.nombre= null;
         res.send(profesor)
         break;
         case '2':
+        estudiante.nombre= null;
         res.send(estudiante)
         break;
         default:
         res.send('Este usuario no existe');
     }
   });
+
+  app.delete('/delete/:id', function(req, res) {
+    var user_id = req.param('id');
+    switch(user_id){
+      case '0':
+      cualquiera = null;
+      res.send(cualquiera);
+      break;
+      case '1':
+      profesor = null;
+      res.send(profesor);
+      break;
+      case '2':
+      estudiante = null;
+      res.send(estudiante);
+      break;
+      default:
+      res.send('Este usuario no existe');
+  }
+});
 
 app.listen(3000, function(req,res){
     console.log('Escuchando en el puerto 3000');
